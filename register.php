@@ -1,6 +1,6 @@
 <?php
 //connexion à la base de données
-$conn = mysqli_connect("localhost", "root", "Dashboard@2024", "pwd_generator");
+$conn = mysqli_connect("localhost", "root", "******", "pwd_generator");
 if (!$conn) {
     echo "Vous n'êtes pas connecté à la base de donnée";
 }
