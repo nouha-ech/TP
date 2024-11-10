@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tpform</title>
+    <script>
+        function generatepassword(event) {
+            event.preventDefault();
+            var size = document.getElementById('size').value;
+            let pwd = "";
+            let str = 'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+
+            for (let i = 1; i <= size; i++) {
+                let char = Math.floor(Math.random() * str.length);
+                pwd += str.charAt(char);
+            }
+
+            console.log(pwd);
+            document.getElementById('passwordgenerated').textContent = pwd;
+            return pwd;
+        }
+    </script>
+</head>
+<body>
+    <h2>Generate Password</h2>
+    <form onsubmit="generatepassword(event)">
+        <fieldset>
+            <legend>Password Generating</legend>
+            <label for="size">Size:</label><br><br>
+            <input type="number" id="size" name="size" placeholder="10"><br><br>
+            <input type="submit" value="Generate">
+        </fieldset>
+    </form>
+    <h2 id="passwordgenerated"></h2>
+</body>
+</html>
+
+
+
+
