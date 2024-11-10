@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription - Mowadaba.ma</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <style>
+        .container {
+            max-width: 600px; 
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="center-align">
+        <img src="ghazala.png" alt="Ghazala" style="max-width: 100%; height: auto; margin-top: 20px;">
+    </div>
+    <h2>Formulaire d'Inscription à BTS Abderrahmane Ben Ghazala </h2>
+
+    <form id="registrationForm" action="inscription.php" method="POST">
+        <div class="input-field">
+            <input type="text" id="nom" name="nom" required>
+            <label for="nom">Nom</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="prenom" name="prenom" required>
+            <label for="prenom">Prénom</label>
+        </div>
+        <div class="input-field">
+            <input type="date" id="date_naissance" name="date_naissance" required>
+            <label for="date_naissance">Date de Naissance</label>
+        </div>
+
+        <label>Sexe</label>
+        <div>
+            <label>
+                <input name="sexe" type="radio" value="Homme" required />
+                <span>Homme</span>
+            </label>
+            <label>
+                <input name="sexe" type="radio" value="Femme" required />
+                <span>Femme</span>
+            </label>
+        </div>
+
+        <label>Classe (Cochez toutes les options applicables)</label>
+        <div>
+            <label>
+                <input type="checkbox" name="classe[]" value="SRI1" />
+                <span>SRI1</span>
+            </label>
+            <label>
+                <input type="checkbox" name="classe[]" value="SRI2" />
+                <span>SRI2</span>
+            </label>
+            <label>
+                <input type="checkbox" name="classe[]" value="DSI1" />
+                <span>DSI1</span>
+            </label>
+            <label>
+                <input type="checkbox" name="classe[]" value="DSI2" />
+                <span>DSI2</span>
+            </label>
+        </div>
+
+        <div class="input-field">
+            <input type="email" id="email" name="email" required>
+            <label for="email">Adresse E-mail</label>
+        </div>
+        <div class="input-field">
+            <input type="tel" id="tel" name="tel" pattern="[0-9]{10}" required>
+            <label for="tel">Numéro de Téléphone</label>
+            <span class="helper-text">Format: 0123456789</span>
+        </div>
+        <div class="input-field">
+            <input type="tel" id="tel_pere" name="tel_pere" pattern="[0-9]{10}" required>
+            <label for="tel_pere">Numéro de Téléphone du Père</label>
+            <span class="helper-text">Format: 0123456789</span>
+        </div>
+        <div class="input-field">
+            <input type="tel" id="tel_mere" name="tel_mere" pattern="[0-9]{10}" required>
+            <label for="tel_mere">Numéro de Téléphone de la Mère</label>
+            <span class="helper-text">Format: 0123456789</span>
+        </div>
+        <div class="input-field">
+            <input type="text" id="cin" name="cin" required>
+            <label for="cin">CIN</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="massar" name="massar" required>
+            <label for="massar">Massar</label>
+        </div>
+        <button type="submit" id="inscriptionbts" class="btn">S'inscrire</button>
+    </form>
+</div>
+
+<script>
+$(document).ready(function(){
+    // Validation pour l'e-mail
+    function mailValidation(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+
+    $('#inscriptionbts').on('click', function(event) {
+        const email = $('#email').val();
+
+        if (!mailValidation(email)) {
+            alert("Veuillez entrer une adresse e-mail valide.");
+            event.preventDefault();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
